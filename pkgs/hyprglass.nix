@@ -1,0 +1,37 @@
+{
+  lib,
+  hyprlandPlugins,
+  fetchFromGitHub,
+  nix-update-script,
+}:
+
+hyprlandPlugins.mkHyprlandPlugin (finalAttrs: {
+  pluginName = "hyprglass";
+  version = "0.7.0";
+
+  src = fetchFromGitHub {
+    owner = "hyprnux";
+    repo = "hyprglass";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-x/584kY+XXlU/OWKtZAFo89VtowjLXs1DiP9PC0o0Os=";
+  };
+
+  installPhase = ''
+    runHook preInstall
+
+    mkdir -p $out/lib
+    mv hyprglass.so $out/lib/libhyprglass.so
+
+    runHook postInstall
+  '';
+
+  passthru.updateScript = nix-update-script { };
+
+  meta = {
+    description = "Hyprland plugin that add blur, lens, difraction, refraction effects to transparent windows. Inspired by Liquid Glass design";
+    homepage = "https://github.com/hyprnux/hyprglass";
+    changelog = "https://github.com/hyprnux/hyprglass/blob/${finalAttrs.src.rev}/CHANGELOG.md";
+    license = lib.licenses.bsd3;
+    platforms = lib.platforms.linux;
+  };
+})

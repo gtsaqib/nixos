@@ -1,0 +1,5 @@
+[format]
+[format.rules]
+line-width = 120
+string-quote-style = 'single'
+trailing-comment-alignment = true

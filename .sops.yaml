@@ -1,0 +1,7 @@
+keys:
+  - &g age1e5njxv8vvha0625gtwa60j0vpxe5hq054ekgwd44lx60ws3yt3ss0j5240
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *g

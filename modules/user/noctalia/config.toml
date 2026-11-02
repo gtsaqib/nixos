@@ -1,0 +1,360 @@
+[theme]
+mode = 'dark'
+source = 'wallpaper'
+
+[theme.templates]
+builtin_ids = ['cava', 'gtk3', 'gtk4', 'helix', 'hyprland', 'qt']
+community_ids = ['opencode', 'pi-agent', 'zen-browser', 'obs', 'papirus-icons', 'bat', 'fzf', 'lazygit', 'lsd', 'yazi']
+
+[theme.templates.user.main]
+input_path = '~/.config/noctalia/templates/main.json'
+output_path = '~/.config/noctalia/generated/main.json'
+post_hook = ''
+
+[theme.templates.user.starship]
+input_path = '~/.config/noctalia/templates/starship.toml'
+output_path = '~/.config/noctalia/generated/starship.toml'
+post_hook = """{
+  cat ~/.config/starship-base.toml
+  printf '\\n'
+  cat ~/.config/noctalia/generated/starship.toml
+} > ~/.config/starship.toml
+"""
+
+[theme.templates.user.kitty]
+input_path = '~/.config/noctalia/templates/kitty.conf'
+output_path = '~/.config/kitty/themes/noctalia.conf'
+post_hook = '~/.config/noctalia/scripts/apply-kitty.lua'
+
+[wallpaper]
+directory = '~/Pictures/Wallpapers'
+transition = ['disc', 'honeycomb', 'stripes', 'wipe']
+transition_on_startup = true
+
+[shell]
+avatar_path = '~/Pictures/avatar.png'
+# app_icon_colorize = true
+# app_icon_color = 'secondary'
+font_family = 'Maple Mono NF'
+settings_window_translucent = true
+launch_apps_custom_command = 'uwsm app -- $CMD'
+polkit_agent = true
+password_style = 'random'
+screen_time_enabled = true
+readline_shortcuts = true
+
+[shell.animation]
+speed = 0.65
+
+[shell.screen_corners]
+enabled = true
+
+[shell.panel]
+transparency_mode = 'glass'
+clipboard_placement = 'attached'
+polkit_placement = 'attached'
+launcher_placement = 'attached'
+control_center_placement = 'attached'
+session_placement = 'attached'
+
+[shell.screenshot]
+confirm_region = true
+remember_last_region = true
+directory = '~/Pictures/Screenshots'
+filename_pattern = 'Screenshot from %Y-%m-%d %H-%M-%S'
+
+[shell.greeter_sync]
+auto_sync = true
+
+[shell.launcher]
+show_app_actions = true
+
+[shell.launcher.providers.session]
+global = true
+
+[shell.launcher.providers.windows]
+global = true
+
+[[shell.session.actions]]
+enabled = true
+action = 'lock'
+shortcut = 'm'
+
+[[shell.session.actions]]
+enabled = true
+action = 'logout'
+shortcut = 'o'
+
+[[shell.session.actions]]
+enabled = true
+action = 'lock_and_suspend'
+shortcut = 'l'
+
+[[shell.session.actions]]
+enabled = true
+action = 'reboot'
+shortcut = 'r'
+
+[[shell.session.actions]]
+enabled = true
+action = 'shutdown'
+shortcut = 's'
+variant = 'destructive'
+
+[[control_center.shortcuts]]
+type = 'dark_mode'
+
+[[control_center.shortcuts]]
+type = 'caffeine'
+
+[[control_center.shortcuts]]
+type = 'nightlight'
+
+[[control_center.shortcuts]]
+type = 'notification'
+
+[[control_center.shortcuts]]
+type = 'power_profile'
+
+[bar.primary]
+position = 'bottom'
+margin_ends = 0
+padding = 15
+radius = 20
+background_opacity = 0.5
+widget_spacing = 10
+capsule = true
+capsule_opacity = 0.8
+start = ['group:launcher', 'group:workspaces', 'group:date', 'group:media', 'privacy', 'tray']
+center = ['active_window']
+end = ['group:cpu', 'group:network', 'bluetooth', 'group:system', 'group:session']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'launcher'
+padding = 8
+accordion = true
+accordion_direction = 'end'
+members = ['launcher', 'nix_status', 'warp', 'ocr', 'widget']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'workspaces'
+padding = 8
+accordion = true
+accordion_direction = 'end'
+members = ['workspaces']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'date'
+padding = 8
+accordion = true
+accordion_direction = 'end'
+members = ['clock', 'weather']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'media'
+padding = 8
+accordion = true
+accordion_direction = 'end'
+members = ['audio_visualizer', 'media']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'cpu'
+padding = 8
+accordion = true
+accordion_direction = 'start'
+members = ['cat', 'ram', 'temp', 'cpu']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'network'
+padding = 8
+accordion = true
+accordion_direction = 'start'
+members = ['network', 'network_rx', 'network_tx']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'system'
+padding = 8
+opacity = 0.8
+members = ['volume', 'brightness', 'battery']
+
+[[bar.primary.capsule_group]]
+enabled = true
+id = 'session'
+padding = 8
+members = ['notifications', 'session']
+
+[widget.nix_status]
+type = 'mindnbytes/nix-status:status'
+
+[widget.warp]
+type = 'levi/warp:warp'
+
+[widget.ocr]
+type = 'fel/ocr:ocr'
+
+[widget.color]
+type = 'oldirtty/color_picker:widget'
+
+[widget.workspaces]
+show_labels = false
+
+[widget.workspaces.actions]
+middle = 'none'
+
+[widget.clock]
+format = '{:%H:%M %a %d %b}'
+
+[widget.audio_visualizer]
+color_2 = 'tertiary'
+show_when_idle = true
+
+[widget.media]
+max_length = 260
+show_progress = true
+title_scroll = 'on_hover'
+
+[widget.tray]
+drawer = true
+
+[widget.active_window]
+min_length = 0
+title_scroll = 'on_hover'
+
+[widget.cat]
+cat_color_mode = 'custom'
+cat_color = 'on_surface'
+type = 'dotnetrob/cat:cat'
+
+[widget.cat.actions]
+middle = 'none'
+
+[widget.bluetooth]
+show_label = true
+
+[desktop_widgets]
+enabled = false
+
+[dock]
+enabled = false
+smart_auto_hide = true
+reserve_space = false
+show_dots = true
+show_instance_count = false
+icon_size = 28
+background_opacity = 0.5
+
+[lockscreen]
+transition = ['disc', 'honeycomb', 'stripes', 'wipe']
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = ['login-box']
+
+[lockscreen_widgets.grid]
+cell_size = 16
+major_interval = 4
+visible = true
+
+[lockscreen_widgets.widget.login-box]
+box_height = 150
+box_width = 810
+cx = 1024
+cy = 901
+output = 'eDP-1'
+placement_height = 1152
+placement_width = 2048
+rotation = 0
+type = 'login_box'
+
+[lockscreen_widgets.widget.login-box.settings]
+background_color = 'surface_variant'
+background_opacity = 0.5
+background_radius = 20
+center_password_text = false
+input_opacity = 0.4
+input_radius = 20
+layout = 'regular'
+show_caps_lock = true
+show_keyboard_layout = false
+show_login_button = false
+show_media = true
+show_session_buttons = false
+show_unlock_hint = true
+show_weather = true
+
+[notification]
+background_opacity = 0.5
+offset_y = 19
+position = 'bottom_right'
+scale = 0.9
+layer = 'overlay'
+
+[osd]
+background_opacity = 0.5
+offset_y = 19
+position = 'bottom_center'
+
+[battery]
+warning_threshold = 20
+
+[location]
+auto_locate = true
+cat_color = 'on_secondary'
+cat_color_mode = 'custom'
+
+[idle]
+behavior_order = ['lock', 'screen-off', 'lock-and-suspend']
+
+[idle.behavior.lock]
+action = 'lock'
+enabled = true
+timeout = 600
+
+[idle.behavior.screen-off]
+action = 'screen_off'
+enabled = true
+timeout = 660
+
+[idle.behavior.lock-and-suspend]
+action = 'lock_and_suspend'
+enabled = false
+timeout = 900
+
+[hooks]
+theme_mode_changed = '~/.config/noctalia/scripts/theme-mode-hook.lua $NOCTALIA_THEME_MODE'
+
+[plugins]
+enabled = [
+  'dotnetrob/cat',
+  'whyoolw/dropwall',
+  'kenn/keybind-cheatsheet',
+  'noctalia/wallhaven',
+  'fel/ocr',
+  'oldirtty/color_picker',
+  'mindnbytes/nix-status',
+  'levi/warp',
+]
+
+[plugin_settings.'kenn/keybind-cheatsheet']
+cheatsheet_placement = 'attached'
+
+[plugin_settings.'noctalia/wallhaven']
+download_dir = '~/Pictures/Wallpapers'
+
+[plugin_settings.'fel/ocr']
+languages = 'eng+ind'
+
+[plugin_settings.'oldirtty/color_picker']
+panel_placement = 'attached'
+
+[plugin_settings.'mindnbytes/nix-status']
+flake_dir = '/etc/nixos'
+nixos_configuration = 'gts'
