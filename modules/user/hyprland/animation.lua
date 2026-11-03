@@ -90,7 +90,7 @@ hl.animation {
   enabled = true,
   speed = 7,
   bezier = 'easeOutQuint',
-  style = 'slidefade 10$',
+  style = 'slidefade 10%',
 }
 hl.animation {
   leaf = 'workspacesOut',

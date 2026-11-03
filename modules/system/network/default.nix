@@ -12,7 +12,6 @@
 
       trustedInterfaces = [
         config.services.tailscale.interfaceName
-        "br-62e516a13025"
       ];
 
       allowedUDPPorts = [ config.services.tailscale.port ];

@@ -12,7 +12,7 @@ local function focus_group_aware(direction)
     local window = hl.get_active_window()
 
     if window and window.group then
-      hl.dispatch(direction == 'l' and hl.dsp.group.prev() or hl.dsp.group.prev())
+      hl.dispatch(direction == 'l' and hl.dsp.group.prev() or hl.dsp.group.next())
     else
       hl.dispatch(hl.dsp.focus { direction = direction })
     end

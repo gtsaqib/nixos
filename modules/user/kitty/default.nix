@@ -4,6 +4,10 @@
   home.shellAliases.icat = "kitten icat";
 
   programs = {
+    fish.interactiveShellInit = ''
+      bind \ck "kitty @ action clear_terminal last_command active" repaint
+      bind \cl "kitty @ action clear_terminal reset active" repaint
+    '';
     kitty = {
       enable = true;
 
@@ -41,9 +45,6 @@
           include themes/noctalia.conf
 
           kitten_alias hints hints --alphabet abcdefghijklmnopqrstuvwxyz1234567890 --hints-offset 0
-
-          map --when-focus-on cmdline:fish ctrl+l clear_terminal to_cursor active
-          map --when-focus-on cmdline:fish ctrl+k clear_terminal last_command active
 
           map kitty_mod+c copy_selection_or_last_command_output
           map kitty_mod+v paste_from_clipboard
@@ -116,7 +117,7 @@
           map ${leader}>shift+p move_tab_backward
 
           map ${leader}>c command_palette
-          map ${leader}>z toggle_layout s60.0tack
+          map ${leader}>z toggle_layout stack
           map ${leader}>u kitten hints
           map ${leader}>shift+u kitten hints --type url --program @
 
