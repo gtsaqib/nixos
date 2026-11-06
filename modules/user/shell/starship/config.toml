@@ -1,314 +1,426 @@
 '$schema' = 'https://starship.rs/config-schema.json'
 
-[aws]
-symbol = ' '
+add_newline = false
+command_timeout = 1000
 
-[azure]
-symbol = ' '
+format = '''
+[╭$os( $git_branch$git_commit(\($git_status$git_metrics\) )$git_state)$docker_context$package$bun$c$cmake$cobol$cpp$dart$deno$dotnet$elixir$elm$erlang$fennel$fortran$gleam$golang$gradle$haskell$haxe$helm$java$julia$kotlin$lua$maven$mojo$nim$nodejs$ocaml$odin$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$typst$vlang$vagrant$xmake$zig$buf$guix_shell$nix_shell$conda$pixi$meson$spack$aws$gcloud$openstack$azure$direnv$mise$crystal$fill$battery$status$cmd_duration$time
+╰$directory$jobs$character](cyan dimmed)
+'''
 
-[battery]
-full_symbol = '󰁹 '
-charging_symbol = '󰂄 '
-discharging_symbol = '󰂃 '
-unknown_symbol = '󰂑 '
-empty_symbol = '󰂎 '
+[os]
+disabled = false
+style = 'bold cyan dimmed'
+format = '[$symbol]($style)'
 
-[buf]
-symbol = ' '
-
-[bun]
-symbol = ' '
-
-[c]
-symbol = ' '
-
-[cpp]
-symbol = ' '
-
-[cmake]
-symbol = ' '
-
-[cobol]
-symbol = ' '
-
-[conda]
-symbol = ' '
-
-[container]
-symbol = ' '
-
-[crystal]
-symbol = ' '
-
-[dart]
-symbol = ' '
-
-[deno]
-symbol = ' '
-
-[direnv]
-symbol = ' '
-
-[directory]
-read_only = ' 󰌾'
-
-[docker_context]
-symbol = ' '
-
-[dotnet]
-symbol = ' '
-
-[elixir]
-symbol = ' '
-
-[elm]
-symbol = ' '
-
-[erlang]
-symbol = ' '
-
-[fennel]
-symbol = ' '
-
-[fortran]
-symbol = ' '
-
-[fossil_branch]
-symbol = ' '
-
-[gcloud]
-symbol = '󱇶 '
-
-[gleam]
-symbol = ' '
+[os.symbols]
+NixOS = ' '
 
 [git_branch]
 symbol = ' '
+style = 'bold purple'
+format = '[$symbol$branch(:$remote_branch)]($style) '
 
 [git_commit]
+tag_disabled = false
 tag_symbol = '  '
+style = 'bold green'
+format = ' [$hash[$tag](green)]($style) '
 
-[golang]
-symbol = ' '
+[git_status]
+ahead = '[ ${count}](bold green)'
+behind = '[ ${count}](bold red)'
+diverged = '[󰹹 ](dimmed)[${ahead_count}](bold green)/[${behind_count}](bold red)'
+style = 'bold yellow'
+format = '([$all_status]($style)( · $ahead_behind) · )'
 
-[gradle]
-symbol = ' '
+[git_metrics]
+disabled = false
+only_nonzero_diffs = false
+added_style = 'bold green'
+deleted_style = 'bold red'
+format = '[ ](dimmed)[[$added]($added_style)/[$deleted]($deleted_style)](cyan dimmed)'
 
-[guix_shell]
-symbol = ' '
+[git_state]
+rebase = '󰜘 rebasing'
+merge = '󰓂 merging'
+revert = '󰕍 reverting'
+cherry_pick = ' cherry-picking'
+bisect = '󰦀 bisecting'
+am = '󰶈 applying'
+am_or_rebase = '󰜘 applying / rebasing'
+format = '[$state](bold yellow)( · [$progress_current](yellow)/[$progress_total](yellow)) '
 
-[haskell]
-symbol = ' '
-
-[haxe]
-symbol = ' '
-
-[helm]
-symbol = ' '
-
-[hg_branch]
-symbol = ' '
-
-[hostname]
-ssh_symbol = ' '
-
-[java]
-symbol = ' '
-
-[jj_bookmark]
-symbol = ' '
-
-[julia]
-symbol = ' '
-
-[kotlin]
-symbol = ' '
-
-[kubernetes]
-symbol = '󱃾 '
-
-[lua]
-symbol = ' '
-
-[maven]
-symbol = ' '
-
-[memory_usage]
-symbol = '󰍛 '
-
-[meson]
-symbol = '󰔷 '
-
-[mojo]
-symbol = '󰈸 '
-
-[nats]
-symbol = ' '
-
-[netns]
-symbol = '󰛳 '
-
-[nim]
-symbol = ' '
-
-[nix_shell]
-symbol = ' '
-
-[nodejs]
-symbol = ' '
-
-[ocaml]
-symbol = ' '
-
-[odin]
-symbol = '󰟢 '
-
-[opa]
-symbol = ' '
-
-[openstack]
-symbol = ' '
-
-[os.symbols]
-AIX = ' '
-AlmaLinux = ' '
-Alpaquita = ' '
-Alpine = ' '
-ALTLinux = ' '
-Amazon = ' '
-Android = ' '
-AOSC = ' '
-Arch = ' '
-Artix = ' '
-Bazzite = ' '
-Bluefin = ' '
-CachyOS = ' '
-CentOS = ' '
-Debian = ' '
-DragonFly = ' '
-Elementary = ' '
-Emscripten = ' '
-EndeavourOS = ' '
-Fedora = ' '
-FreeBSD = ' '
-Garuda = ' '
-Gentoo = ' '
-HardenedBSD = '󰞌 '
-Hurd = ' '
-Illumos = ' '
-InstantOS = ' '
-Ios = '󰀷 '
-Kali = ' '
-KDENeon = ' '
-Linux = ' '
-Mabox = ' '
-Macos = ' '
-Manjaro = ' '
-Mariner = ' '
-MidnightBSD = ' '
-Mint = ' '
-NetBSD = ' '
-NixOS = ' '
-Nobara = ' '
-OpenBSD = ' '
-OpenCloudOS = ' '
-openEuler = ' '
-openSUSE = ' '
-OracleLinux = '󰺡 '
-PikaOS = ' '
-Pop = ' '
-Raspbian = ' '
-Redhat = '󱄛 '
-RedHatEnterprise = '󱄛 '
-Redox = '󰀘 '
-RockyLinux = ' '
-Solus = ' '
-SUSE = ' '
-Ubuntu = ' '
-Ultramarine = ' '
-Unknown = ' '
-Uos = ' '
-Void = ' '
-Windows = '󰍲 '
-Zorin = ' '
+[docker_context]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol$context]($style) '
 
 [package]
 symbol = '󰏗 '
+style = 'bold yellow'
+format = ' [$symbol$version]($style) '
+
+[bun]
+symbol = ' '
+style = 'bold red'
+format = ' [$symbol$version]($style) '
+
+[c]
+symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version(-$name) )]($style)'
+
+[cmake]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[cobol]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[cpp]
+symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version(-$name) )]($style)'
+
+[dart]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[deno]
+symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version )]($style)'
+
+[dotnet]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )( $tfm )]($style)'
+
+[elixir]
+symbol = ' '
+style = 'bold purple'
+format = ' [$symbol($version \(OTP $otp_version\) )]($style)'
+
+[elm]
+symbol = ' '
+style = 'bold cyan'
+format = ' [$symbol($version )]($style)'
+
+[erlang]
+symbol = ' '
+style = 'bold red'
+format = ' [$symbol($version )]($style)'
+
+[fennel]
+symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version )]($style)'
+
+[fortran]
+symbol = ' '
+style = 'bold purple'
+format = ' [$symbol($version(-$name) )]($style)'
+
+[gleam]
+symbol = ' '
+style = 'bold purple'
+format = ' [$symbol($version )]($style)'
+
+[golang]
+symbol = ' '
+style = 'bold cyan'
+format = ' [$symbol($version )]($style)'
+
+[gradle]
+symbol = ' '
+style = 'bold cyan'
+format = ' [$symbol($version )]($style)'
+
+[haskell]
+symbol = ' '
+style = 'bold purple'
+format = ' [$symbol($version )]($style)'
+
+[haxe]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol($version )]($style)'
+
+[helm]
+symbol = ' '
+style = 'bold white'
+format = ' [$symbol($version )]($style)'
+
+[java]
+symbol = ' '
+style = 'bold red dimmed'
+format = ' [$symbol($version )]($style)'
+
+[julia]
+symbol = ' '
+style = 'bold purple'
+format = ' [$symbol($version )]($style)'
+
+[kotlin]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[lua]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[maven]
+symbol = ' '
+style = 'bold bright'
+format = ' [$symbol($version )]($style)'
+
+[mojo]
+symbol = '󰈸 '
+style = 'bold yellow'
+format = ' [$symbol($version )]($style)'
+
+[nim]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol($version )]($style)'
+
+[nodejs]
+symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version )]($style)'
+
+[ocaml]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
+
+[odin]
+symbol = '󰟢 '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[opa]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
 
 [perl]
 symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version )]($style)'
 
 [php]
 symbol = ' '
-
-[pijul_channel]
-symbol = ' '
-
-[pixi]
-symbol = '󰏗 '
+style = 'bold purple'
+format = ' [$symbol($version )]($style)'
 
 [pulumi]
 symbol = ' '
+style = 'bold purple'
+format = ' [$symbol($username@)$stack]($style) '
 
 [purescript]
 symbol = ' '
+style = 'bold white'
+format = ' [$symbol($version )]($style)'
 
 [python]
 symbol = ' '
+style = 'yellow bold'
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[quarto]
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
 
 [raku]
 symbol = '󱖊 '
-
-[red]
-symbol = '󱍼 '
+style = 'bold green'
+format = ' [$symbol($version-$vm_version )]($style)'
 
 [rlang]
 symbol = '󰟔 '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[red]
+symbol = '󱍼 '
+style = 'bold red'
+format = ' [$symbol($version )]($style)'
 
 [ruby]
 symbol = ' '
+style = 'bold red'
+format = ' [$symbol($version )]($style)'
 
 [rust]
 symbol = '󱘗 '
+style = 'bold red'
+format = ' [$symbol($version )]($style)'
 
 [scala]
 symbol = ' '
-
-[shlvl]
-symbol = '󰹍 '
-
-[singularity]
-symbol = ' '
+style = 'bold red'
+format = ' [$symbol($version )]($style)'
 
 [solidity]
 symbol = ' '
-
-[spack]
-symbol = ' '
-
-[status]
-symbol = ' '
-
-[sudo]
-symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version)]($style)'
 
 [swift]
 symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol($version )]($style)'
 
 [terraform]
 symbol = ' '
-
-[vlang]
-symbol = ' '
+style = 'bold blue'
+format = ' [$symbol$workspace]($style) '
 
 [typst]
 symbol = ' '
+style = 'bold cyan'
+format = ' [$symbol($version )]($style)'
+
+[vlang]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
 
 [vagrant]
 symbol = ' '
+style = 'bold cyan'
+format = ' [$symbol($version )]($style)'
 
 [xmake]
 symbol = ' '
+style = 'bold green'
+format = ' [$symbol($version )]($style)'
 
 [zig]
 symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol($version )]($style)'
+
+[buf]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($version )]($style)'
+
+[guix_shell]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol]($style) '
+
+[nix_shell]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol$state( \($name\))]($style) '
+
+[conda]
+symbol = ' '
+style = 'bold green'
+format = ' [$symbol$environment]($style) '
+
+[pixi]
+symbol = '󰏗 '
+style = 'bold yellow'
+format = ' [$symbol($version )(\($environment\) )]($style)'
+
+[meson]
+symbol = '󰔷 '
+style = 'bold blue'
+format = ' [$symbol$project]($style) '
+
+[spack]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol$environment]($style) '
+
+[aws]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
+
+[gcloud]
+symbol = '󱇶 '
+style = 'bold blue'
+format = ' [$symbol$account(@$domain)(\($region\))]($style) '
+
+[openstack]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol$cloud(\($project\))]($style) '
+
+[azure]
+symbol = ' '
+style = 'bold blue'
+format = ' [$symbol($subscription)]($style) '
+
+[direnv]
+symbol = ' '
+style = 'bold yellow'
+format = ' [$symbol$loaded]($style)/[$allowed]($style) '
+
+[mise]
+style = 'bold purple'
+format = ' [$symbol$health]($style) '
+
+[crystal]
+symbol = ' '
+style = 'bold red'
+format = ' [$symbol($version )]($style)'
+
+[fill]
+symbol = ' '
+
+[battery]
+charging_symbol = '󰂄 '
+discharging_symbol = '󰂃 '
+empty_symbol = '󰂎 '
+full_symbol = '󰁹 '
+unknown_symbol = '󰂑 '
+format = ' [$symbol$percentage]($style) '
+
+[status]
+symbol = ' '
+style = 'bold red'
+format = '[$symbol$status]($style) '
+
+[cmd_duration]
+min_time = 100
+show_milliseconds = true
+style = 'bold yellow'
+format = ' [⏱ $duration]($style) '
+
+[time]
+# disabled = false
+style = 'bold yellow'
+format = ' [ $time]($style) '
+
+[directory]
+fish_style_pwd_dir_length = 3
+truncate_to_repo = false
+truncation_symbol = '…/'
+repo_root_style = 'bold cyan'
+repo_root_format = '[ $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
+read_only = ' 󰌾'
+read_only_style = 'bold red'
+style = 'cyan'
+format = '[ ](bold cyan)[$path]($style)[$read_only]($read_only_style) '
+
+[jobs]
+symbol = '󰫢 '
+number_threshold = 1
+
+[character]
+success_symbol = '[❯](bold green)'
+error_symbol = '[❯](bold red)'

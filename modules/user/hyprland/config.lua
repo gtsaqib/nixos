@@ -14,7 +14,7 @@ hl.config {
   general = {
     gaps_in = 5,
     gaps_out = 10,
-    border_size = 0,
+    border_size = 1,
 
     resize_on_border = false,
     allow_tearing = false,
@@ -122,14 +122,14 @@ hl.window_rule {
 }
 
 hl.window_rule {
-  name = 'remove-terminal-border',
-  match = { class = 'kitty' },
+  name = 'remove-window-borders',
+  match = { class = 'kitty|com\\.mitchellh\\.ghostty' },
   border_size = 0,
 }
 
 hl.window_rule {
-  name = 'dim-terminal',
-  match = { class = 'kitty' },
+  name = 'dim-windows',
+  match = { class = 'kitty|com\\.mitchellh\\.ghostty' },
   opacity = '0.85 1',
 }
 

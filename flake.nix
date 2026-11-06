@@ -41,6 +41,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    tuios = {
+      url = "github:Gaurav-Gosain/tuios";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

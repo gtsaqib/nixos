@@ -90,9 +90,9 @@
             symbol = "circle";
           }
           {
-            key = " ";
+            key = "│ {#31}󰎆 media   {#keys}│";
             type = "media";
-            format = "├───────────┤\n│ {#31}󰎆 {artist} - {combined}{#keys}\n├───────────┤";
+            format = "{artist} - {combined}";
           }
           {
             key = "╰───────────╯";

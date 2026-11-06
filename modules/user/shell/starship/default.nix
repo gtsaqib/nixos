@@ -6,6 +6,8 @@
   programs = {
     fish.interactiveShellInit = ''
       function starship_transient_prompt_func
+        printf " "
+        starship module directory
         starship module character
       end
     '';

@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
-    # ./zellij/default.nix
     ./fish/default.nix
     ./starship/default.nix
     ./lsd/default.nix
@@ -21,6 +20,7 @@
     ./fastfetch/default.nix
     ./bottom/default.nix
     ./lazygit/default.nix
+    ./tuios/default.nix
   ];
 
   home = {

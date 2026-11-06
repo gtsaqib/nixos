@@ -16,7 +16,7 @@ MAX_PROGRAM_LEN = 20
 REFRESH_SECONDS = 0.5
 
 KEY_TIMEOUT = 2.0
-MAX_KEYS = 12
+MAX_KEYS = 32
 
 MODE_COLOR = "color4"
 PROGRAM_COLOR = "color2"
@@ -127,8 +127,8 @@ def _key_text(ev) -> str:
     name = SPECIAL_KEYS.get(key)
     if name is None:
         if key == 32:
-            # if not mods:
-            #     return " "
+            if not mods:
+                return " "
             name = "Space"
         elif 32 < key < 0xE000:
             name = chr(key).lower()

@@ -3,8 +3,20 @@ mode = 'dark'
 source = 'wallpaper'
 
 [theme.templates]
-builtin_ids = ['cava', 'gtk3', 'gtk4', 'helix', 'hyprland', 'qt']
-community_ids = ['opencode', 'pi-agent', 'zen-browser', 'obs', 'papirus-icons', 'bat', 'fzf', 'lazygit', 'lsd', 'yazi']
+builtin_ids = ['cava', 'gtk3', 'gtk4', 'ghostty', 'helix', 'hyprland', 'qt']
+community_ids = [
+  'opencode',
+  'pi-agent',
+  'zen-browser',
+  'zed',
+  'obs',
+  'papirus-icons',
+  'bat',
+  'lazygit',
+  'lsd',
+  'tuios',
+  'yazi'
+]
 
 [theme.templates.user.main]
 input_path = '~/.config/noctalia/templates/main.json'
@@ -26,6 +38,10 @@ input_path = '~/.config/noctalia/templates/kitty.conf'
 output_path = '~/.config/kitty/themes/noctalia.conf'
 post_hook = '~/.config/noctalia/scripts/apply-kitty.lua'
 
+[theme.templates.user.fzf]
+input_path = '~/.config/noctalia/templates/fzf.fish'
+output_path = '~/.config/noctalia/generated/fzf.fish'
+
 [wallpaper]
 directory = '~/Pictures/Wallpapers'
 transition = ['disc', 'honeycomb', 'stripes', 'wipe']
@@ -44,7 +60,7 @@ screen_time_enabled = true
 readline_shortcuts = true
 
 [shell.animation]
-speed = 0.65
+speed = 0.5
 
 [shell.screen_corners]
 enabled = true
