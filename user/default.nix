@@ -15,7 +15,6 @@
     ../modules/user/ai/default.nix
     ../modules/user/spicetify/default.nix
     ../modules/user/obs-studio/default.nix
-    ../modules/user/zed-editor/default.nix
   ];
 
   home.stateVersion = "26.05";

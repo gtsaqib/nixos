@@ -8,7 +8,6 @@ community_ids = [
   'opencode',
   'pi-agent',
   'zen-browser',
-  'zed',
   'obs',
   'papirus-icons',
   'bat',
