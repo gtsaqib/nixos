@@ -20,7 +20,6 @@
     ./fastfetch/default.nix
     ./bottom/default.nix
     ./lazygit/default.nix
-    ./tuios/default.nix
   ];
 
   home = {

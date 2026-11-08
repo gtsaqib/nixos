@@ -4,18 +4,7 @@ source = 'wallpaper'
 
 [theme.templates]
 builtin_ids = ['cava', 'gtk3', 'gtk4', 'ghostty', 'helix', 'hyprland', 'qt']
-community_ids = [
-  'opencode',
-  'pi-agent',
-  'zen-browser',
-  'obs',
-  'papirus-icons',
-  'bat',
-  'lazygit',
-  'lsd',
-  'tuios',
-  'yazi'
-]
+community_ids = ['opencode', 'pi-agent', 'zen-browser', 'obs', 'papirus-icons', 'bat', 'lazygit', 'lsd', 'yazi']
 
 [theme.templates.user.main]
 input_path = '~/.config/noctalia/templates/main.json'
